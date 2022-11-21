@@ -11,12 +11,9 @@ const specialGuest = 'Piscopo Aniello';
 // * DECLARATIONS
 
 // ? VARIABLES DECLARATIONS
-let ageDiscount;
 let nameUser;
 let surnameUser;
 let fullNameUser;
-let kmDiscount;
-let ticketPriceFinalPrice;
 
 
 
@@ -121,20 +118,20 @@ else{
 
                                     // ? APPLICATION OF THE DISCOUNT
                                     if(userAge < 18){
-                                        ageDiscount = ticketPriceWithoutDiscount/100 * 20;
-                                        ticketPriceFinalPrice = ticketPriceWithoutDiscount - ageDiscount;
+                                        discount = ticketPriceWithoutDiscount/100 * 20;
+                                        ticketWithDiscount = ticketPriceWithoutDiscount - discount;
                                     }
                                     else if(userAge > 65){
-                                        ageDiscount = ticketPriceWithoutDiscount/100 * 40;
-                                        ticketPriceFinalPrice = ticketPriceWithoutDiscount - ageDiscount;
+                                        discount = ticketPriceWithoutDiscount/100 * 40;
+                                        ticketWithDiscount = ticketPriceWithoutDiscount - discount;
                                     }
                                     else{
-                                        ticketPriceFinalPrice = ticketPriceWithoutDiscount;
+                                        ticketWithDiscount = ticketPriceWithoutDiscount;
                                     }
 
 
                                     // ? FINAL PRICE ALERT
-                                    alert(`Il prezzo del biglietto è di ${ticketPriceFinalPrice.toFixed(2)}$`);
+                                    alert(`Il prezzo del biglietto è di ${ticketWithDiscount.toFixed(2)}$`);
                                 }
                             }
                         }
