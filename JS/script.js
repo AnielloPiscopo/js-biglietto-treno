@@ -50,7 +50,7 @@ else{
     }
 
     else{
-        // ? CONVERSIONE DEL VALORE DA STRINGA A NUMERO CON VIRGOLA E CALCOLO DEL PREZZO DEL BIGLIETTO DEL TRENO SENZA SCONTO
+        // ? CONVERSIONE DEL VALORE DA STRINGA A NUMERO DECIMALE E CALCOLO DEL PREZZO DEL BIGLIETTO DEL TRENO SENZA SCONTO
         kmtoTravel = parseFloat(kmToTravel);
         ticketPriceWithoutDiscount = kmToTravel * ticketPriceMoltiplicatorUnit;
 
@@ -77,6 +77,7 @@ else{
             }
 
             else{
+                // ? CONVERSIONE DEL VALORE DA STRINGA A NUMERO INTERO
                 userAge = parseInt(userAge);
 
 
@@ -92,6 +93,9 @@ else{
                 else{
                     ticketPriceWithDiscount = ticketPriceWithoutDiscount;
                 }
+
+
+                // ? ALERT DEL PREZZO FINALE 
                 alert(`Il prezzo del biglietto è di ${ticketPriceWithDiscount.toFixed(2)}$`);
             }
         }
