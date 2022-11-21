@@ -1,16 +1,16 @@
 /* *---------------------------------------------------------------
-INIZIALIZZAZIONE E DICHIARAZIONI DI VARIABILI E COSTANTI */
+INITIALIZATIONS AND DECLARATIONS */
 
-// * INIZIALIZZAZIONE
+// * INITIALIZATIONS
 
-// ? INIZIALIZZAZIONE DELLE COSTANTI
+// ? COSTANTS INITIALIZATION
 const ticketPriceMoltiplicatorUnit = 0.21;
 
 
 
-// * DICHIARAZIONE
+// * DECLARATIONS
 
-// ? DICHIARAZIONE DELLE VARIABILI
+// ? VARIABLES DECLARATIONS
 let discount;
 let ticketPriceWithoutDiscount;
 let ticketPriceWithDiscount;
@@ -32,7 +32,7 @@ alert('Il prezzo viene calcolato secondo queste regole:\n1)Ogni km vale 0.21$;\n
 alert('Detto questo');
 
 
-// ? PRELIEVO E ACCETTAZIONE DEI KM FORNITI DALL'UTENTE TRAMITE PROMPT
+// ? TAKING AND CONTROL OF THE KM GIVEN BY THE USER WITH THE PROMPT
 kmToTravel = prompt('Quanti km dovrai percorrere?');
 
 if(kmToTravel === null){
@@ -50,12 +50,12 @@ else{
     }
 
     else{
-        // ? CONVERSIONE DEL VALORE DA STRINGA A NUMERO DECIMALE E CALCOLO DEL PREZZO DEL BIGLIETTO DEL TRENO SENZA SCONTO
+        // ? CONVERSION OF THE VALUE FROM A STRING TO A DECIMAL NUMBER AND CALCULATION OF THE PRICE OF THE TRAIN TICKET WITHOUT THE DISCOUNT
         kmtoTravel = parseFloat(kmToTravel);
         ticketPriceWithoutDiscount = kmToTravel * ticketPriceMoltiplicatorUnit;
 
 
-        // ? PRELIEVO E ACCETTAZIONE DELL'ETA' DELL'UTENTE
+        // ? TAKING AND CONTROL OF THE AGE GIVEN BY THE USER WITH THE PROMPT
         userAge = prompt('Quanti anni hai?');
 
         if(userAge === null){
@@ -77,11 +77,11 @@ else{
             }
 
             else{
-                // ? CONVERSIONE DEL VALORE DA STRINGA A NUMERO INTERO
+                // ? CONVERSION OF THE VALUE FROM A STRING TO AN ENTIRE NUMBER
                 userAge = parseInt(userAge);
 
 
-                // ? APPLICAZIONE DELLO SCONTO
+                // ? APPLICATION OF THE DISCOUNT
                 if(userAge < 18){
                     discount = ticketPriceWithoutDiscount/100 * 20;
                     ticketPriceWithDiscount = ticketPriceWithoutDiscount - discount;
@@ -95,7 +95,7 @@ else{
                 }
 
 
-                // ? ALERT DEL PREZZO FINALE 
+                // ? FINAL PRICE ALERT
                 alert(`Il prezzo del biglietto è di ${ticketPriceWithDiscount.toFixed(2)}$`);
             }
         }
