@@ -3,9 +3,19 @@ INIZIALIZZAZIONE E DICHIARAZIONI DI VARIABILI E COSTANTI */
 
 // * INIZIALIZZAZIONE
 
+// ? INIZIALIZZAZIONE DELLE COSTANTI
+const ticketPriceMoltiplicatorUnit = 0.21;
+
 
 
 // * DICHIARAZIONE
+
+// ? DICHIARAZIONE DELLE VARIABILI
+let discount;
+let ticketPriceWithoutDiscount;
+let ticketPriceWithDiscount;
+let kmToTravel;
+let userAge;
 
 
 
@@ -22,4 +32,68 @@ alert('Il prezzo viene calcolato secondo queste regole:\n1)Ogni km vale 0.21$;\n
 alert('Detto questo');
 
 
-// ? DATI FORNITI DALL'UTENTE TRAMITE PROMPT
+// ? PRELIEVO E ACCETTAZIONE DEI KM FORNITI DALL'UTENTE TRAMITE PROMPT
+kmToTravel = prompt('Quanti km dovrai percorrere?');
+
+if(kmToTravel === null){
+    alert('Il programma è stato annullato');
+}
+else{
+    if(kmToTravel === ''){
+        alert('Non hai digitato nessun valore');
+    }
+    else if(!isFinite(kmToTravel)){
+        alert('ATTENZIONE!\n Puoi digitare solo valori numerici');
+    }
+    else if(Number(kmToTravel)<0){
+        alert('ATTENZIONE\n La distanza tra 2 punti non può essere un valore negativo');
+    }
+
+    else{
+        // ? CONVERSIONE DEL VALORE DA STRINGA A NUMERO CON VIRGOLA E CALCOLO DEL PREZZO DEL BIGLIETTO DEL TRENO SENZA SCONTO
+        kmtoTravel = parseFloat(kmToTravel);
+        ticketPriceWithoutDiscount = kmToTravel * ticketPriceMoltiplicatorUnit;
+
+
+        // ? PRELIEVO E ACCETTAZIONE DELL'ETA' DELL'UTENTE
+        userAge = prompt('Quanti anni hai?');
+
+        if(userAge === null){
+            alert('Il programma è stato annullato');
+        }
+        else{
+            if(userAge === ''){
+                alert('Non hai digitato nessun valore');
+            }
+            else if(!isFinite(userAge)){
+                alert('ATTENZIONE!\n Puoi digitare solo valori numerici');
+            }
+            else if(Number(userAge)<0){
+                alert('ATTENZIONE\n All\'età non può essere associato un valore negativo');
+            }
+
+            else if((Number(userAge) - Number(Math.floor(userAge))) !==0){
+                alert('ATTENZIONE\n L\'età non può essere un numero decimale');
+            }
+
+            else{
+                userAge = parseInt(userAge);
+
+
+                // ? APPLICAZIONE DELLO SCONTO
+                if(userAge < 18){
+                    discount = ticketPriceWithoutDiscount/100 * 20;
+                    ticketPriceWithDiscount = ticketPriceWithoutDiscount - discount;
+                }
+                else if(userAge > 65){
+                    discount = ticketPriceWithoutDiscount/100 * 40;
+                    ticketPriceWithDiscount = ticketPriceWithoutDiscount - discount;
+                }
+                else{
+                    ticketPriceWithDiscount = ticketPriceWithoutDiscount;
+                }
+                alert(`Il prezzo del biglietto è di ${ticketPriceWithDiscount.toFixed(2)}$`);
+            }
+        }
+    }
+}
